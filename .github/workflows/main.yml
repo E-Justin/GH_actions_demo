@@ -6,6 +6,9 @@ on:
     branches:
       - main
 
+  schedule:
+    - cron: "35 22 * * 1-5"
+
   # allow riggering  this workflow manually from the actions tab
   workflow_dispatch:
 
