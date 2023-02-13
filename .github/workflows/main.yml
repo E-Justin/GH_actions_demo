@@ -1,21 +1,28 @@
 name: Test Pipeline
 
 on:
+  # set up ohw the workflow is triggered
   push:
     branches:
       - main
 
+  # allow riggering  this workflow manually from the actions tab
   workflow_dispatch:
 
 jobs:
+  # job # 1, "build-and-test"
   build-and-test:
+    # runner environment to use
     runs-on: ubuntu-latest
 
+    # each step begins with a hyphen
     steps:
+      # checkes out your repo under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
       - run: echo Entering Test Pipeline
 
+        # this installs python 3.9 to the runner environment
       - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
